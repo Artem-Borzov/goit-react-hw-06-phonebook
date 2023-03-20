@@ -11,7 +11,11 @@ const ContactsList = () => {
     contact.name.toLowerCase().includes(normalizedFilter)
   );
 
-  return (
+  return contacts.length === 0 ? (
+    `No contacts yet`
+  ) : visibleContacts.length === 0 ? (
+    `No matches founded`
+  ) : (
     <Contacts>
       {visibleContacts.map(({ id, name, number }) => (
         <ContactsListItem key={id} id={id} name={name} number={number} />
