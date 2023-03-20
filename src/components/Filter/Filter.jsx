@@ -1,24 +1,27 @@
 import React from 'react';
 import { FilterLabel, FilterInput } from './Filter.styled';
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFilter } from 'redux/contactsSlice';
 
-const Filter = ({ value, onChange }) => {
+const Filter = () => {
+  const filter = useSelector(state => state.phonebook.filter);
+  const dispatch = useDispatch();
+
+  const changeFilter = e => {
+    dispatch(setFilter(e.currentTarget.value));
+  };
+
   return (
     <FilterLabel>
       Magic Finder
       <FilterInput
         type="text"
-        value={value}
-        onChange={onChange}
+        value={filter}
+        onChange={changeFilter}
         name="filter"
       />
     </FilterLabel>
   );
-};
-
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
 };
 
 export default Filter;
