@@ -23,5 +23,5 @@ export const ContactsListItem = ({ name, number, id }) => {
 ContactsListItem.propTypes = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  id: PropTypes.string.isRequired,
 };

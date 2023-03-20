@@ -5,7 +5,7 @@ import { ContactsListItem } from 'components/ContactListItem/ContactListItem';
 
 const ContactsList = () => {
   const contacts = useSelector(state => state.phonebook.contacts);
-  const filter = useSelector(state => state.phonebook.filter);
+  const filter = useSelector(state => state.filter.filter);
   const normalizedFilter = filter.toLowerCase();
   const visibleContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(normalizedFilter)
